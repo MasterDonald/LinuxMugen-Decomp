@@ -19,7 +19,7 @@ It's important to note LINUXMUGEN's decompilation is *heavily assisted by Large 
 
 ## Decompilation pipeline
 LINUXMUGEN's decompilation follows this pipeline:
-1) Separate Ghidra's disassembly & pseudo c-code of X function.
+1) Separate [Ghidra's](https://github.com/NationalSecurityAgency/ghidra) disassembly & pseudo c-code of X function.
 2) Measure disassembly to pseudo c-code accuracy.
 3) Map offsets used by pseudo c-code.
 4) Translate/Refactor pseudo c-code into standard C code.
