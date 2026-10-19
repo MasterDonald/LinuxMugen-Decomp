@@ -30,3 +30,6 @@ LINUXMUGEN's decompilation follows this pipeline:
 
 ## Function priority
 The decompilation priority of functions is simple, if the function is generally more used than others, it gets decompiled first.
+
+## PROGRESS
+* 'GAME' Functions: 20/65 (30.77% done)
