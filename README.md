@@ -15,7 +15,9 @@ When entering `Functions` folder:
 * `{Function}-Documentation.md}` => Documentation of the function.
 
 ## Artificial Intelligence disclaimer
-It's important to note LINUXMUGEN's decompilation is *heavily assisted by Large Language Models due to lack of time and the massive list of functions to decompile*. However, the process is not entirely automated by a harness such as [REA](https://github.com/morluto/rea). While decompilation speed would increase quite much, **transparency and manual checks are key parts of the project as small [LLM hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)) could snowball into massive mistakes given the project's magnitude and complexity.**
+It's important to note LINUXMUGEN's decompilation is *heavily assisted by Large Language Models due to lack of time and the massive list of functions to decompile*. However, the process is not entirely automated by a harness such as [REA](https://github.com/morluto/rea). While decompilation speed would increase quite much, **transparency and manual checks are key parts of the project as small [LLM hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)) could snowball into massive mistakes given the project's magnitude and complexity.**<br>
+
+**So, if you don't want to deal with AI generated code, I highly recommend you just stick to the provided dissassembly and pseudo-c code of Ghidra, thank you!**
 
 ## Decompilation pipeline
 LINUXMUGEN's decompilation follows this pipeline:
