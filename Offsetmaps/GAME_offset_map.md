@@ -1,14 +1,31 @@
 # GAME FUNCTIONS Offset Map
 
-## GameDeInit()
+## GameBarsDraw()
 
 | Offset | Variable Name | Type | Description |
 | :--- | :--- | :--- | :--- |
-| `0x20710` | `g->stage.load_tick_duration` | `int` | Tick duration elapsed during stage loading. |
-| `0x20714` | `g->stage.player1_load_ticks` | `int` | Tick duration elapsed during Player 1 loading. |
-| `0x20718` | `g->stage.player2_load_ticks` | `int` | Tick duration elapsed during Player 2 loading. |
-| `0x20724` | `g->engine.match_tick_start` | `int` | Tick counter recorded at match start for timing. |
-| `0x20728` | `g->stage.bg_pal_groups_count` | `int` | Number of palette groups loaded in background. |
+| `0x1055c` | `g->match.lifebar_config` | `int` | Lifebar configuration structure base address. |
+| `0x1cf68` | `g->match.active_entity_pointers` | `int[32]` | Array of active character and entity pointers for HUD rendering. |
+| `0x1cf70` | `g->match.hud_status_flags` | `int[32]` | Status flag array determining alternate HUD layout rendering modes. |
+
+---
+
+## GameBarsUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1cf68` | `g->match.hud_entity_p1` | `int` | Primary Player 1 HUD entity pointer reference. |
+| `0x1cf6c` | `g->match.hud_entity_p2` | `int` | Primary Player 2 HUD entity pointer reference. |
+| `0x1cf70` | `g->match.hud_entity_helper1` | `int` | Additional helper/teammate entity pointer 1 for HUD updates. |
+| `0x1cf74` | `g->match.hud_entity_helper2` | `int` | Additional helper/teammate entity pointer 2 for HUD updates. |
+
+---
+
+## GameBGLoad()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x2014` | `g->files.stage_def_filename` | `char[256]` | Stage definition file path and filename buffer. |
 
 ---
 
@@ -44,6 +61,27 @@
 
 ---
 
+## GameDefKeyInit()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1ccec` | `g->input.p1_key_config_base` | `int` | Base offset for Player 1 default keyboard configuration block. |
+| `0x1cd20` | `g->input.p2_key_config_base` | `int` | Base offset for Player 2 default keyboard configuration block. |
+
+---
+
+## GameDeInit()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x20710` | `g->stage.load_tick_duration` | `int` | Tick duration elapsed during stage loading. |
+| `0x20714` | `g->stage.player1_load_ticks` | `int` | Tick duration elapsed during Player 1 loading. |
+| `0x20718` | `g->stage.player2_load_ticks` | `int` | Tick duration elapsed during Player 2 loading. |
+| `0x20724` | `g->engine.match_tick_start` | `int` | Tick counter recorded at match start for timing. |
+| `0x20728` | `g->stage.bg_pal_groups_count` | `int` | Number of palette groups loaded in background. |
+
+---
+
 ## GameInit()
 
 | Offset | Variable Name | Type | Description |
@@ -66,6 +104,22 @@
 | `0x15aff` | `g->files.system_def_path` | `char[256]` | System definition file directory path. |
 | `0x14b00` | `g->files.system_def_filename` | `char[256]` | System definition filename (system.def). |
 | `0x20748` | `g->scratch_error_buffer` | `char[512]` | Temporary scratchpad buffer for formatting error strings. |
+
+---
+
+## GameInitPads()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1cdbc` | `g->input.p1_default_pad_config` | `int[13]` | Default gamepad/pad configuration data block for Player 1. |
+| `0x1cd54` | `g->input.p1_pad_config` | `int[13]` | Active gamepad/pad configuration data structure for Player 1. |
+| `0x1cdf0` | `g->input.p2_default_pad_config` | `int[13]` | Default gamepad/pad configuration data block for Player 2. |
+| `0x1cd88` | `g->input.p2_pad_config` | `int[13]` | Active gamepad/pad configuration data structure for Player 2. |
+| `0x1ce2c` | `g->input.p1_pad_enabled` | `int` | Player 1 pad activation and device index flag. |
+| `0x1ce30` | `g->input.p2_pad_enabled` | `int` | Player 2 pad activation and device index flag. |
+| `0x1ce34` | `g->input.p1_device_id` | `int` | Player 1 device type identifier. |
+| `0x1ce38` | `g->input.p2_device_id` | `int` | Player 2 device type identifier. |
+| `0x1ce40` | `g->input.device_config` | `int` | Specific device initialization configuration block. |
 
 ---
 
@@ -92,6 +146,25 @@
 
 ---
 
+## GameLifeBarDraw()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d564` | `g->system.screen_mode_flag` | `int` | Active screen display mode / widescreen configuration flag. |
+| `0x20734` | `g->debug.show_health_values` | `int` | Debug flag indicating whether numerical health values are drawn on screen. |
+| `0x104e8` | `g->assets.font_handle` | `int` | Active font asset handle used for HUD text rendering. |
+
+---
+
+## GameLifeBarUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1cc24` | `g->match.pause_flag` | `int` | Match pause or freeze state indicator flag. |
+| `0x1d434` | `g->match.round_slowdown_timer` | `int` | Round slowdown / dramatic finish timer counter. |
+
+---
+
 ## GameLoadFightData()
 
 | Offset | Variable Name | Type | Description |
@@ -107,6 +180,25 @@
 | `0x14ad0` | `g->match.use_icon_upto` | `int` | Maximum win icons displayed limit. |
 | `0x14af8` | `g->assets.p1_explod_array_handle` | `int` | Player 1 active explod array container handle. |
 | `0x14afc` | `g->assets.p2_explod_array_handle` | `int` | Player 2 active explod array container handle. |
+
+---
+
+## GameLoadOptions()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1e678` | `g->engine.difficulty` | `int` | Difficulty setting loaded from configuration. |
+| `0x1e67c` | `g->match.life_setting` | `int` | Default match life setting loaded from configuration. |
+| `0x1e680` | `g->match.round_time_setting` | `int` | Default round time setting loaded from configuration. |
+| `0x1e684` | `g->engine.gamespeed` | `int` | Game speed tick rate setting loaded from configuration. |
+| `0x1e688` | `g->audio.wav_volume` | `int` | Sound effect (WAV) volume setting. |
+| `0x1e68c` | `g->audio.midi_volume` | `int` | MIDI music volume setting. |
+| `0x1e6a4` | `g->input.config_loaded_flag` | `int` | Flag indicating input configuration has been loaded. |
+| `0x1e6ac` | `g->input.p1_joystick_type` | `int` | Player 1 joystick device type configuration. |
+| `0x1e6c0` | `g->input.p2_joystick_type` | `int` | Player 2 joystick device type configuration. |
+| `0x1e6d0` | `g->match.team_1vs2_life` | `int` | Life multiplier configuration for 1 vs 2 team matches. |
+| `0x1e6d4` | `g->match.team_lose_on_ko` | `int` | Team LoseOnKO rule configuration flag. |
+| `0x1e6e0` | `g->files.motif_path` | `char[256]` | File path string for the active motif/system definition. |
 
 ---
 
@@ -207,6 +299,14 @@
 
 ---
 
+## GameNextRound()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d418` | `g->match.round_time` | `int` | Current active round counter / match round progression index. |
+
+---
+
 ## GamePlay()
 
 | Offset | Variable Name | Type | Description |
@@ -261,6 +361,24 @@
 
 ---
 
+## GameRoundDraw()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1cf68` | `g->match.hud_entity_p1` | `int` | Primary Player 1 HUD entity pointer reference. |
+| `0x1cf6c` | `g->match.hud_entity_p2` | `int` | Primary Player 2 HUD entity pointer reference. |
+| `0x1cf70` | `g->match.hud_entity_helper1` | `int` | Additional helper/teammate entity pointer 1 for HUD updates. |
+| `0x1cf74` | `g->match.hud_entity_helper2` | `int` | Additional helper/teammate entity pointer 2 for HUD updates. |
+| `0x1d3a0` | `g->match.training_mode_flag` | `int` | Training mode execution active flag. |
+| `0x1d418` | `g->match.round_time` | `int` | Current active round counter / match round progression index. |
+| `0x1d438` | `g->match.p1_consecutive_wins` | `int` | Player 1 consecutive win streak counter. |
+| `0x1d43c` | `g->match.round_timer_counter` | `int` | Internal round timing tick counter. |
+| `0x1d444` | `g->match.round_state` | `int` | Current round phase state machine selector. |
+| `0x1d44c` | `g->match.round_winner_p2` | `int` | Player 2 round outcome / winner indicator flag. |
+| `0x1d450` | `g->match.round_timer_counter` | `int` | Internal elapsed tick counter for the current round phase. |
+
+---
+
 ## GameRoundReset()
 
 | Offset | Variable Name | Type | Description |
@@ -308,6 +426,55 @@
 | `0x0420c` | `g->stage.spawn_config_base` | `int` | Base offset pointer for player spawn and boundary configurations. |
 | `0x04250` | `g->match.spawn_facing_config` | `int[4]` | Initial spawn facing direction configuration array. |
 | `0x1cf64` | `g->stage.entity_array_base` | `int[32]` | Base array pointer for active stage entities and characters. |
+
+---
+
+## GameRoundUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d440` | `g->match.round_time_limit` | `int` | Active round duration time limit countdown value. |
+| `0x1d444` | `g->match.round_state` | `int` | Current round phase state machine selector (0=intro, 1=fight, 2=over, 3=fade, 4=end). |
+| `0x1d448` | `g->match.round_winner_p1` | `int` | Player 1 round outcome / winner indicator flag. |
+| `0x1d44c` | `g->match.round_winner_p2` | `int` | Player 2 round outcome / winner indicator flag. |
+| `0x1d450` | `g->match.round_timer_counter` | `int` | Internal elapsed tick counter for the current round phase. |
+| `0x1d454` | `g->match.round_time_elapsed` | `int` | Total ticks elapsed in the active round. |
+| `0x1d45c` | `g->match.match_over_flag` | `int` | Flag indicating match completion and transition request. |
+
+---
+
+## GameRoundWinner()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d448` | `g->match.round_winner` | `int` | Round winner identifier / outcome flag (0=none/draw, 1=Player 1, 2=Player 2). |
+
+---
+
+## GameSetVol()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1bbcc` | `g->audio.master_volume` | `int` | Master audio volume level toggle/setting. |
+| `0x1e688` | `g->audio.wav_volume` | `int` | Sound effect (WAV) volume setting multiplier. |
+| `0x1e68c` | `g->audio.midi_volume` | `int` | MIDI music volume setting multiplier. |
+
+---
+
+## GameSndPlayID()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1bbd0` | `g->audio.wav_volume` | `int` | Sound effect (WAV) volume level offset for playback scaling. |
+| `0x1cc20` | `g->engine.sound_paused_flag` | `int` | Global flag indicating whether sound playback is temporarily paused. |
+
+---
+
+## GameSndPlayIDPos()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d5b0` | `g->engine.screen_pan_enabled` | `int` | Toggle flag for screen position to audio panning conversion. |
 
 ---
 
