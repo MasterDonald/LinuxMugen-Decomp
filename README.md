@@ -4,7 +4,7 @@ Decompilation of LINUXMUGEN (14.04.2002)
 ## About the project
 LINUXMUGEN is an official beta port from DOSMUGEN made by Elecbyte which was initially released on the 1st of November, 2001. It received an update on the 14th of the same month and year (2001.11.14) before having it's last documented update on the 14th of April, 2002. The community has analyzed, tested and created content from the rest of versions, these being winmugen, mugen 1.0 and mugen 1.1 respectively.<br> *With the rise in popularity around UNIX, having a stable, native version of MUGEN on these systems is a potential great opportunity, thus the LINUXMUGEN Decompilation project was created.*
 
-**The intention behind this project is for archival, patching, experimenting, exploiting and study purposes. If Elecbyte does not approve, this repository will be taken down.**
+**The intention behind this project is for archival, patching, experimenting, exploiting and study purposes. If Elecbyte does not approve, this repository will be taken down. Additionally, this is meant to be taken as a "base" rather than a fully fledged result, expect mistakes as this is a one man operation (at least for now).**
 
 ## Navigation & Naming
 When entering `Functions` folder:
@@ -34,4 +34,4 @@ LINUXMUGEN's decompilation follows this pipeline:
 The decompilation priority of functions is simple, if the function is generally more used than others, it gets decompiled first.
 
 ## PROGRESS
-* 'GAME' Functions: 20/65 (30.77% done)
+* 'GAME' Functions: 40/65 (61.54% done)
