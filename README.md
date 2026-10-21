@@ -4,7 +4,14 @@ Decompilation of LINUXMUGEN (14.04.2002)
 ## About the project
 LINUXMUGEN is an official beta port from DOSMUGEN made by Elecbyte which was initially released on the 1st of November, 2001. It received an update on the 14th of the same month and year (2001.11.14) before having it's last documented update on the 14th of April, 2002. The community has analyzed, tested and created content from the rest of versions, these being winmugen, mugen 1.0 and mugen 1.1 respectively.<br> *With the rise in popularity around UNIX, having a stable, native version of MUGEN on these systems is a potential great opportunity, thus the LINUXMUGEN Decompilation project was created.*
 
-**The intention behind this project is for archival, patching, experimenting, exploiting and study purposes. If Elecbyte does not approve, this repository will be taken down. Additionally, this is meant to be taken as a "base" rather than a fully fledged result, expect mistakes since this is a one man operation TvT (at least for now).**
+**The intention behind this project is for archival, patching, experimenting, exploiting and study purposes. If Elecbyte does not approve, this repository will be taken down. Additionally, this is meant to be taken as a "base" rather than a fully fledged result, expect mistakes since this is a one man operation TvT (at least for now).**<br>
+
+Sample has been taken from [Cheap Mugen Wiki](https://mugen-cheap.fandom.com/wiki/All_MUGEN_Versions_Available).<br>
+* MD5: `98f2b22ba5a5bab20dba558fe597d001`
+* SHA1: `c5d97e90d70df16d2e3c2cfdd34d7cb11f6290f5`
+* SHA256: `352daf2e4813a37a304c1034e052f7b3722eb601d401c3baad2f733658dea938`<br>
+
+Note: LINUXMUGEN was packed with UPX version [1.20](https://sourceforge.net/projects/upx/files/upx/) and compiled with `GCC (GNU) 2.96 20000731 mandrake linux 8.1 2.96-062mdk`
 
 ## Navigation & Naming
 When entering `Functions` folder:
@@ -28,10 +35,13 @@ LINUXMUGEN's decompilation follows this pipeline:
 5) Measure pseudo c-code to standard C code accuracy.
 6) Verify accuracy of disassembly, pseudo c-code, standard C code and offsets.
 7) Document function purpose and usage.
-8) Commit update.
+8) Commit update.<br>
+
+**Refactorization quality is highly orientative and in some cases incomplete!!**
 
 ## Function priority
 The decompilation priority of functions is simple, if the function is generally more used than others, it gets decompiled first.
 
 ## PROGRESS
-* 'GAME' Functions: 40/65 (61.54% done)
+* 'GAME' Functions: 65/65 (100% done)
+* 'PLAYER' Functions: 0/107 (0% done)
