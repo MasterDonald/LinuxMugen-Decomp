@@ -1,5 +1,42 @@
 # GAME FUNCTIONS Offset Map
 
+## GameActivateAI()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x20b58` | `g->engine.ai_enabled_flag` | `int` | Global artificial intelligence control / activation flag. |
+| `0xcef4` | `g->match.team_ai_member_count` | `int` | Active team member count evaluated for AI control assignment. |
+| `0xcef8` | `g->match.team_ai_member_indices` | `int[5]` | Member index array used for activating team AI flags. |
+
+---
+
+## GameAftImgArrayFree()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xc` | `array->element_count` | `int` | Number of active items stored within the dynamic array container. |
+
+---
+
+## GameAftImgCount()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x8` | `aftimg->active_flag` | `int` | Status indicator or active timer flag for the afterimage item. |
+| `0xc` | `array->element_count` | `int` | Number of active items stored within the dynamic array container. |
+
+---
+
+## GameAftImgReset()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x8` | `aftimg->active_flag` | `int` | Status indicator or active timer flag for the afterimage item, reset to 0. |
+| `0x18` | `aftimg->timer` | `int` | Internal animation/frame timer for the afterimage item, reset to 0. |
+| `0xc` | `array->element_count` | `int` | Number of active items stored within the dynamic array container. |
+
+---
+
 ## GameBarsDraw()
 
 | Offset | Variable Name | Type | Description |
@@ -26,6 +63,25 @@
 | Offset | Variable Name | Type | Description |
 | :--- | :--- | :--- | :--- |
 | `0x2014` | `g->files.stage_def_filename` | `char[256]` | Stage definition file path and filename buffer. |
+
+---
+
+## GameClsnDraw()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x4` | `clsn_container->num_boxes` | `int` | Total number of collision bounding boxes stored in the container. |
+| `0x8` | `clsn_container->boxes_array` | `void*` | Pointer to the array of collision bounding box data elements. |
+
+---
+
+## GameClsnUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d16c` | `g->match.clsn_active_entity_list` | `int[32]` | Active entity list array compiled for collision and hit processing. |
+| `0x1d270` | `g->match.clsn_active_entity_count` | `int` | Total count of active entities populated in the collision list. |
+| `0x1cc10` | `g->match.collision_flags` | `int` | Collision priority and resolution configuration flags. |
 
 ---
 
@@ -79,6 +135,49 @@
 | `0x20718` | `g->stage.player2_load_ticks` | `int` | Tick duration elapsed during Player 2 loading. |
 | `0x20724` | `g->engine.match_tick_start` | `int` | Tick counter recorded at match start for timing. |
 | `0x20728` | `g->stage.bg_pal_groups_count` | `int` | Number of palette groups loaded in background. |
+
+---
+
+## GameDemoUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x8d44` | `g->files.intro_storyboard` | `int` | Intro storyboard status/existence handle or pointer flag. |
+| `0x1d3a0` | `g->match.demo_mode_flag` | `int` | Active demo mode execution toggle flag. |
+| `0x1d3a4` | `g->match.demo_loop_max` | `int` | Maximum loop count before cycling demo sequences. |
+| `0x1d3b4` | `g->match.demo_fade_duration` | `int` | Duration ticks allocated for demo screen fade-out transitions. |
+| `0x1d3c4` | `g->match.demo_timer` | `int` | Internal elapsed tick counter for the active demo session. |
+| `0x1d3c8` | `g->match.demo_loop_counter` | `int` | Current loop iteration counter for demo presentations. |
+| `0x1d444` | `g->match.round_state` | `int` | Current round phase state machine selector. |
+
+---
+
+## GameFGDraw()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1bb50` | `g->stage.bg_array_handle` | `int` | Pointer handle to the active background element array container. |
+
+---
+
+## GameFreeChars()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x10420` | `g->match.team_member_count` | `int` | Active member count for the specified team index. |
+| `0x10424` | `g->match.team_member_indices` | `int[5]` | Member index lookup array for team characters. |
+| `0x1ce60` | `g->stage.entity_slots_mask` | `int[32]` | Entity slot allocation and tracking mask block. |
+| `0x1cf60` | `g->match.player_array` | `int[4]` | Base pointer array for active fighters in the match. |
+| `0x1cf64` | `g->stage.entity_array_base` | `int[32]` | Base array pointer for active stage entities and characters. |
+
+---
+
+## GameFreePlayerDependencies()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x1d164` | `g->stage.active_entity_start_idx` | `int` | Starting index for active entity iteration loops. |
+| `0x1d168` | `g->stage.active_entity_end_idx` | `int` | Ending index for active entity iteration loops. |
 
 ---
 
@@ -162,6 +261,24 @@
 | :--- | :--- | :--- | :--- |
 | `0x1cc24` | `g->match.pause_flag` | `int` | Match pause or freeze state indicator flag. |
 | `0x1d434` | `g->match.round_slowdown_timer` | `int` | Round slowdown / dramatic finish timer counter. |
+
+---
+
+## GameLoadAndActivateTeam()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x10418` | `g->match.team_config_active_base` | `int[23]` | Active team configuration and status block buffer. |
+| `0x1cf64` | `g->stage.entity_array_base` | `int[32]` | Base array pointer for active stage entities and characters. |
+
+---
+
+## GameLoadAndCreateChars()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xceec` | `g->match.team_chars_config_base` | `int` | Base offset for team character configuration blocks. |
+| `0x2070c` | `g->stage.player_load_ticks_base` | `int[4]` | Base array for tracking individual player loading tick durations. |
 
 ---
 
@@ -299,6 +416,38 @@
 
 ---
 
+## GameMatchWinner()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xe970` | `g->match.team_win_limit_base` | `int[2]` | Base offset array for rounds required to win the match per team. |
+| `0xe974` | `g->match.team_win_timer_base` | `int[2]` | Base offset array for win timing conditions per team. |
+| `0x14234` | `g->match.match_conclusion_threshold` | `int` | Threshold counter determining match winner evaluation timing. |
+| `0x1d41c` | `g->match.win_rounds` | `int[2]` | Cumulative round victories tracked per team/player. |
+| `0x1d424` | `g->match.round_start_delay` | `int` | Delay counter before round action begins. |
+| `0x1d428` | `g->match.intro_time` | `int` | Intro sequence presentation timer counter. |
+| `0x1d444` | `g->match.round_state` | `int` | Current round phase state machine selector. |
+| `0x1d448` | `g->match.round_winner` | `int` | Round winner identifier / outcome flag. |
+| `0x1d450` | `g->match.round_timer_counter` | `int` | Internal elapsed tick counter for the current round phase. |
+
+---
+
+## GameModeInFightScreen()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xcedc` | `g->mode.fight_screen_mode_flag` | `int` | Game mode flag determining fight screen interface rendering rules. |
+
+---
+
+## GameModeInPassiveFightScreen()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xcedc` | `g->mode.fight_screen_mode_flag` | `int` | Game mode flag determining passive/observer fight screen interface rules. |
+
+---
+
 ## GameNextRound()
 
 | Offset | Variable Name | Type | Description |
@@ -340,6 +489,27 @@
 | `0xbe54` | `g->files.ending_cutscene_path` | `char[256]` | Ending cutscene file path. |
 | `0xcecc` | `g->mode.arcade_mode_flag` | `int` | Arcade mode active flag. |
 | `0xced0` | `g->mode.survival_team_count` | `int` | Survival mode team count. |
+
+---
+
+## GamePowerBarDraw()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x11b3c` | `g->match.lifebar_elements_base` | `int` | Base offset for lifebar and powerbar graphic element configurations. |
+| `0x1d564` | `g->system.screen_mode_flag` | `int` | Active screen display mode / widescreen configuration flag. |
+
+---
+
+## GamePowerBarUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x10554` | `g->match.fight_snd` | `SndHandle*` | Loaded fighter/system sound container handle (.snd). |
+| `0x12074` | `g->match.power_sound_table_1` | `int[10]` | Sound ID table for power level milestones. |
+| `0x1209c` | `g->match.power_sound_table_2` | `int[10]` | Secondary sound configuration table for power level milestones. |
+| `0x1cc24` | `g->match.pause_flag` | `int` | Match pause or freeze state indicator flag. |
+| `0x1d434` | `g->match.round_slowdown_timer` | `int` | Round slowdown / dramatic finish timer counter. |
 
 ---
 
@@ -496,6 +666,22 @@
 
 ---
 
+## GameSurvivalResultsUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xadcc` | `g->match.survival_results_config` | `int` | Survival results screen configuration base structure. |
+| `0xae0c` | `g->match.survival_results_text_buf` | `char[256]` | Text buffer for formatting survival results messages. |
+| `0xae3c` | `g->match.survival_hold_time` | `int` | Survival results screen hold duration timer threshold. |
+| `0xae40` | `g->match.survival_fadein_time` | `int` | Survival results screen fade-in transition duration ticks. |
+| `0xae44` | `g->match.survival_fadeout_time` | `int` | Survival results screen fade-out transition duration ticks. |
+| `0xced0` | `g->mode.survival_team_count` | `int` | Active survival mode team/player count. |
+| `0x1d418` | `g->match.round_time` | `int` | Round elapsed match timer counter. |
+| `0x1d504` | `g->match.arcade_win_screen_state` | `int` | Current phase state machine selector for win/results screen. |
+| `0x1d508` | `g->match.arcade_win_screen_timer` | `int` | Elapsed tick counter for the current results screen phase. |
+
+---
+
 ## GameUnloadStage()
 
 | Offset | Variable Name | Type | Description |
@@ -554,3 +740,59 @@
 | `0x1d168` | `g->match.player_loop_end` | `int` | Ending index for active player update loop.  |
 | `0x1d278` | `g->engine.player_active_flags` | `int[32]` | Array of active status flags per player entity.  |
 | `0x1d378` | `g->engine.player_update_trigger` | `int` | Secondary player update trigger synchronization flag.  |
+
+---
+
+## GameVarDeInit()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x104d8` | `g->video.primary_surface_handle` | `int` | Main drawing video surface handle pointer. |
+| `0x104dc` | `g->video.surface_extra_handle` | `int` | Secondary/extra surface handle pointer for video subsystem. |
+| `0x104e0` | `g->video.secondary_surface_handle` | `int` | Secondary rendering buffer/surface pointer. |
+| `0x104e8` | `g->assets.font_handle_1` | `int` | Primary system font handle pointer. |
+| `0x104ec` | `g->assets.font_handle_2` | `int` | Secondary system font handle pointer. |
+| `0x104f0` | `g->assets.scale_group_handle` | `int` | Layered scale and sprite group handle. |
+| `0x104f4` | `g->assets.pr_sprite_handle` | `int` | Primitive sprite array container pointer. |
+| `0x104f8` | `g->assets.p1_explod_array_handle` | `int` | Player 1 active explod array container handle. |
+| `0x104fc` | `g->assets.afterimage_container_handle` | `int` | Handle for active afterimage effect container. |
+| `0x1ce44` | `g->input.circ_buf` | `IntCircBuf` | Circular buffer structure used for input or event queue. |
+| `0x20744` | `g->system.clipboard_handle` | `int` | Clipboard management handle or data buffer pointer. |
+
+---
+
+## GameVarInit()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x2004` | `g->system.write_test_passed` | `int` | Flag indicating successful file write permission test in working directory. |
+| `0x2008` | `g->system.mugendate_m` | `int` | Build date month value. |
+| `0x200c` | `g->system.mugendate_d` | `int` | Build date day value. |
+| `0x2010` | `g->system.mugendate_y` | `int` | Build date year value. |
+| `0x104e4` | `g->video.active_surface_handle` | `int` | Currently active video drawing surface handle pointer. |
+| `0x1d068` | `g->engine.anim_update_flag_1` | `int` | Animation update control flag 1. |
+| `0x1d06c` | `g->engine.anim_update_flag_2` | `int` | Animation update control flag 2. |
+| `0x1d398` | `g->match.expired_flag` | `int` | Software expiration date check trigger flag. |
+
+---
+
+## GameVarLoadFonts()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0x104e8` | `g->assets.font_handle_1` | `int` | Primary system font handle pointer (`f-4x6.fnt`). |
+| `0x104ec` | `g->assets.font_handle_2` | `int` | Secondary system font handle pointer (`f-6x9.fnt`). |
+| `0x20748` | `g->scratch_error_buffer` | `char[512]` | Temporary scratchpad buffer for formatting error strings. |
+
+---
+
+## GameWinScreenUpdate()
+
+| Offset | Variable Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `0xad54` | `g->match.arcade_win_screen_flag` | `int` | Arcade win screen trigger flag / element handle. |
+| `0xadc0` | `g->match.win_screen_hold_time` | `int` | Win screen duration timer threshold for phase 1. |
+| `0xadc4` | `g->match.win_screen_fadein_time` | `int` | Win screen fade-in transition duration ticks. |
+| `0xadc8` | `g->match.win_screen_fadeout_time` | `int` | Win screen fade-out transition duration ticks. |
+| `0x1d504` | `g->match.arcade_win_screen_state` | `int` | Current phase state machine selector for the victory/win screen. |
+| `0x1d508` | `g->match.arcade_win_screen_timer` | `int` | Elapsed tick counter for the current win screen phase. |
